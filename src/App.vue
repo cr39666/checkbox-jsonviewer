@@ -1,47 +1,58 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import checkboxJsonviewer from './package/checkbox-jsonviewer/index.vue'
+
+const jsonData_test = {
+  "request_id": "1744614285.322678_0.7948833576865223",
+  "raw_query": "饮品",
+  "search_mode": "Content",
+  "slot_info": {
+    "info": {
+      "time": [],
+      "contact_type": 0,
+      "chat_topic": [
+        "饮品"
+      ],
+      "exclude_topic": [],
+    },
+    "cost": {
+      "secs": true,
+      "nanos": 683076292
+    }
+  },
+  "metadata": {
+    "session_user_name": "111222@chatroom",
+    "long_caption": null,
+    "core_tags": [
+      "日常拍摄照片",
+      "杯子",
+      "包装盒"
+    ],
+    "exact_tags": [
+      "陶瓷杯",
+    ],
+    "ocr_text": "灬0\n© Uucky Every Day Lucky Dm\ntwery\nDay",
+    "cls_l1": null,
+    "cls_l2": null,
+    "cls_l3": null
+  },
+  "image_url": "https://baidu.com/l11.jpg",
+  "retrieval_infos": [
+    {
+      "module_name": "short_caption_embedding",
+      "detail": {
+        "hit_info": {
+          "L2": 1.3311166763305664
+        },
+        "postprocess_score": 0.9980087876319885
+      }
+    }
+  ]
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <checkboxJsonviewer name-space="jsonviewer" :data="jsonData_test" :expand-depth="1" />
+  <checkboxJsonviewer name-space="jsonviewer2" :data="jsonData_test" :expand-depth="1" />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
