@@ -15,7 +15,7 @@
           </el-icon>
           <!-- json的key值 -->
           <span :class="['key-style', { 'number-key-style': !isNaN(Number(key)) }]">
-            {{ isTop ? '' : isNaN(Number(key)) ? key : Number(key) }}
+            {{ isTop ? '' : isNaN(Number(key)) ? props.showQuota ? `"${key}"` : key : Number(key) }}
           </span>
           <span v-if="!isTop" class="semicolon-style">:</span>
           <!-- json的各种类型value值 -->
@@ -45,8 +45,8 @@
       <!-- 子级复用组件 -->
       <div v-if="isExpanded(key) && (isObject(value) || isArray(value))">
         <ChildNode :is-top="false" :data="value" :is-edit-mode="isEditMode" :visible-keys="getVisibleKeysForChild(key)"
-          :path="String(key)" :expand-depth="expandDepth - 1"
-          @update-visible-keys="updateChildVisibleKeys(key, $event)" />
+          :path="String(key)" :expand-depth="expandDepth - 1" :show-quota="props.showQuota"
+          :showbtn-menu="props.showbtnMenu" @update-visible-keys="updateChildVisibleKeys(key, $event)" />
         <div class="bracket-style bracket-end">
           <span>{{ isArray(value) ? ']' : '}' }}</span>
         </div>
@@ -66,6 +66,8 @@ interface Props {
   visibleKeys: { [key: string]: boolean };
   path: string;
   expandDepth: number;
+  showQuota: boolean;
+  showbtnMenu: boolean;
 }
 
 const props = defineProps<Props>();
@@ -178,6 +180,8 @@ watchEffect(() => {
 watch(() => props.visibleKeys, () => {
   updateComponentKey();
 });
+
+const ulMarginTop = computed(() => (props.showbtnMenu && props.isTop ? '1em' : 0))
 </script>
 
 <style scoped>
@@ -185,6 +189,8 @@ ul {
   list-style-type: none;
   margin-left: 6px;
   padding-left: 0;
+  margin-block-start: v-bind(ulMarginTop);
+  margin-block-end: 0;
 }
 
 .left-line {
