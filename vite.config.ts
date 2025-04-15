@@ -33,7 +33,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/package/index.ts'),
       name: 'checkbox-jsonviewer',
-      fileName: 'checkbox-jsonviewer',
+      fileName: (format) => `checkbox-jsonviewer.${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],

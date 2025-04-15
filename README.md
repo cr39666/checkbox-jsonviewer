@@ -24,42 +24,28 @@ npm install checkbox-jsonviewer
 
 在你的 Vue 项目中引入并使用该组件：
 
-```
-\<template>
+```html
+<template>
+  <checkbox-jsonviewer
+    :nameSpace="yourNamespace"
+    :props.data="yourJsonData"
+    :props.expandDepth="1"
+    :props.linkage="true"
+    :props.editable="true"
+    :props.showQuota="false"
+    :props.showBorder="true"
+    :props.showShadow="true"
+    :props.showCopy="true"
+  />
+</template>
 
-&#x20; \<checkbox-jsonviewer
+<script setup lang="ts">
+  import checkboxJsonviewer from 'checkbox-jsonviewer'
 
-&#x20;   :nameSpace="yourNamespace"
+  const yourNamespace = 'exampleNamespace'
 
-&#x20;   :props.data="yourJsonData"
-
-&#x20;   :props.expandDepth="1"
-
-&#x20;   :props.linkage="true"
-
-&#x20;   :props.editable="true"
-
-&#x20;   :props.showQuota="false"
-
-&#x20;   :props.showBorder="true"
-
-&#x20;   :props.showShadow="true"
-
-&#x20;   :props.showCopy="true"
-
-&#x20; />
-
-\</template>
-
-\<script setup lang="ts">
-
-import checkboxJsonviewer from 'checkbox-jsonviewer';
-
-const yourNamespace = 'exampleNamespace';
-
-const yourJsonData: string | object = { key1: 'value1', key2: 'value2' };
-
-\</script>
+  const yourJsonData: string | object = { key1: 'value1', key2: 'value2' }
+</script>
 ```
 
 ## 组件参数
@@ -86,4 +72,4 @@ const yourJsonData: string | object = { key1: 'value1', key2: 'value2' };
 
 ## 许可证
 
-`checkbox - jsonviewer`使用[MIT 许可证](LICENSE)，你可以自由地使用、修改和分发该组件。页
+`checkbox - jsonviewer`使用[MIT 许可证](LICENSE)，你可以自由地使用、修改和分发该组件。

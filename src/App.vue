@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// import checkboxJsonviewer from './package/checkbox-jsonviewer/index.vue'
+import checkboxJsonviewer from './package/checkbox-jsonviewer/index.vue'
+// import checkboxJsonviewer from 'checkbox-jsonviewer'
 
 const jsonData_test = '{"name": "John", "age": {"a":30,"b":"dasf"}}'
 // {
