@@ -109,7 +109,6 @@ const recursionVisibility = (newVisibleKeys: { [key: string]: boolean }, parentK
     const childKeys = Object.keys(childData);
     childKeys.forEach((childKey) => {
       const fullChildKey = `${parentKey}.${childKey}`;
-      // eslint-disable-next-line no-param-reassign
       newVisibleKeys[fullChildKey] = isSelected; // 修改副本
       recursionVisibility(newVisibleKeys, fullChildKey, isSelected);
     });
