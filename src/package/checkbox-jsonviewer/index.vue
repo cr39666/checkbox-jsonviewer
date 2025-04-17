@@ -12,6 +12,12 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "checkbox-jsonviewer",
+};
+</script>
+
 <script setup lang="ts">
 import { ref, onMounted, watch, computed } from 'vue';
 import ChildNode from './child-node.vue';
@@ -25,7 +31,7 @@ const jsonViewerStore = useJsonViewerStore();
  * @param {string} nameSpace - 组件的命名空间,用于多个地方复用组件的时候区分localstorage
  * @param {unknown} props.data - 传入的json数据
  * @param {number} props.expandDepth - 展开层数
- * @param {boolean} props.linkage - 不刷新页面的情况下，是否与其他的同命名空间的组件联动同步显隐状态,默认联动；若刷新页面，无论此属性是否为true,同命名空间的都会同步
+ * @param {boolean} props.linkage - 不刷新页面的情况下，是否将当前组件的显隐状态与其他的同命名空间的组件联动同步,默认不联动；若手动刷新页面，无论此属性是否为true,同命名空间的都会同步
  * @param {boolean} props.editable - 是否可编辑，即是否可通过选择复选框来控制成员显隐，默认可以
  * @param {boolean} props.showQuota - 是否显示key值的引号，默认不显示
  * @param {boolean} props.showBorder - 是否显示边框，默认显示

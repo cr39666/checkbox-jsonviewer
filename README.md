@@ -2,6 +2,10 @@
 
 `checkbox-jsonviewer`是一个用 Vue3 + TypeScript 封装的公共组件，旨在提供便捷的 JSON 数据可视化查看功能。通过该组件，你可以轻松地将 JSON 数据以直观的方式展示出来，并且能够通过复选框灵活控制每个 JSON 成员的显示与隐藏。
 
+## 组件依赖
+
+使用 `checkbox - jsonviewer` 之前，你需要确保项目使用了element-plus和pinia，否则可能无法使用当前组件，后续有时间本人可能会去掉element-plus的依赖。
+
 ## 功能特点
 
 **JSON 数据可视化**：能够接收并可视化传入的 JSON 数据。
@@ -50,17 +54,17 @@ npm install checkbox-jsonviewer
 
 ## 组件参数
 
-| 参数名            | 类型       | 描述                                                                                                                                | 默认值 |
-| ----------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| nameSpace         | string     | 组件的命名空间，用于多个地方复用组件的时候区分 localstorage                                                                         | ''     |
-| props.data        | string/obj | 传入的 JSON 数据                                                                                                                    | 无     |
-| props.expandDepth | number     | 展开层数                                                                                                                            | 0      |
-| props.linkage     | boolean    | 不刷新页面的情况下，是否与其他的同命名空间的组件联动同步显隐状态，默认联动；若刷新页面，无论此属性是否为 true, 同命名空间的都会同步 | true   |
-| props.editable    | boolean    | 是否可编辑,即是否可通过选择复选框来控制成员显隐                                                                                     | true   |
-| props.showQuota   | boolean    | 是否显示 key 值的引号                                                                                                               | false  |
-| props.showBorder  | boolean    | 是否显示边框                                                                                                                        | true   |
-| props.showShadow  | boolean    | 是否显示阴影                                                                                                                        | true   |
-| props.showCopy    | boolean    | 是否显示复制按钮                                                                                                                    | true   |
+| 参数名            | 类型       | 描述                                                                                                                                               | 默认值 |
+| ----------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| nameSpace         | string     | 组件的命名空间，用于多个地方复用组件的时候区分 localstorage                                                                                        | ''     |
+| props.data        | string/obj | 传入的 JSON 数据                                                                                                                                   | 无     |
+| props.expandDepth | number     | 展开层数                                                                                                                                           | 0      |
+| props.linkage     | boolean    | 不刷新页面的情况下，是否将当前组件的显隐状态与其他的同命名空间的组件联动同步,默认不联动；若手动刷新页面，无论此属性是否为true,同命名空间的都会同步 | false  |
+| props.editable    | boolean    | 是否可编辑,即是否可通过选择复选框来控制成员显隐                                                                                                    | true   |
+| props.showQuota   | boolean    | 是否显示 key 值的引号                                                                                                                              | false  |
+| props.showBorder  | boolean    | 是否显示边框                                                                                                                                       | true   |
+| props.showShadow  | boolean    | 是否显示阴影                                                                                                                                       | true   |
+| props.showCopy    | boolean    | 是否显示复制按钮                                                                                                                                   | true   |
 
 ## 示例
 

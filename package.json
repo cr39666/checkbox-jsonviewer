@@ -1,6 +1,6 @@
 {
   "name": "checkbox-jsonviewer",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A Vue3 + TS JSON visualization component with checkbox to control member visibility",
   "license": "MIT",
   "author": "croyell",
@@ -12,12 +12,12 @@
     "jsonviewer-checkbox",
     "checkbox-jsonviewer"
   ],
-  "private": false,
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/cr39666/checkbox-jsonviewer"
   },
+  "private": false,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -28,6 +28,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "checkbox-jsonviewer": "^1.0.9",
     "element-plus": "^2.9.7",
     "pinia": "^3.0.1",
     "vite-plugin-dts": "^4.5.3",
@@ -53,15 +54,11 @@
     "vue-tsc": "^2.2.8"
   },
   "main": "./dist/checkbox-jsonviewer.umd.js",
-  "module": "./dist/checkbox-jsonviewer.js",
-  "exports": {
-    ".": {
-      "import": "./dist/checkbox-jsonviewer.esm.js",
-      "require": "./dist/checkbox-jsonviewer.js"
-    }
-  },
+  "module": "./dist/checkbox-jsonviewer.es.js",
+  "types": "./dist/checkbox-jsonviewer.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "package.json"
   ]
 }

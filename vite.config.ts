@@ -14,7 +14,10 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   plugins: [
     vue(),
-    dts(),
+    dts({
+      outDir: 'dist',
+      insertTypesEntry: true,
+    }),
     vueDevTools(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
@@ -29,18 +32,20 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
     lib: {
-      entry: path.resolve(__dirname, 'src/package/index.ts'),
+      entry: path.resolve(__dirname, './src/package/index.ts'),
       name: 'checkbox-jsonviewer',
       fileName: (format) => `checkbox-jsonviewer.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'pinia', 'element-plus'],
       output: {
+        exports: 'named',
         globals: {
-          vue: 'Vue'
-        }
+          vue: 'Vue',
+          pinia: 'Pinia',
+          'element-plus': 'ElementPlus'
+        },
       }
     },
   }
